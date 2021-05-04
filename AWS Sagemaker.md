@@ -35,7 +35,7 @@
   - 위와 같이 학습(Training)을 마치면 추상화를 위한 Predict를 준비한다.
   - ![image-20210407184035354](C:\Users\dudtj\AppData\Roaming\Typora\typora-user-images\image-20210407184035354.png)
   - ![image-20210407184151015](C:\Users\dudtj\AppData\Roaming\Typora\typora-user-images\image-20210407184151015.png)
-  - Model Artifacts (학습을 통해 만들어진 모델) + Inference Algorithm을 갖고아ㅗ서 EndPoint를 생성한다. 이를 통해 서비스를 제공하게 된다. ( 미래 예측, 분류 서비스 )
+  - Model Artifacts (학습을 통해 만들어진 모델) + Inference Algorithm을 갖고와서 EndPoint를 생성한다. 이를 통해 서비스를 제공하게 된다. ( 미래 예측, 분류 서비스 )
   - ![image-20210407184418399](C:\Users\dudtj\AppData\Roaming\Typora\typora-user-images\image-20210407184418399.png)
 
 - Built-in Algorithm : SageMaker가 자체적으로 제공하는 알고리즘만을 사용하는 방식(17종류) 
