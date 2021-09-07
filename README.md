@@ -1,2 +1,2 @@
 # theorem
-The theorem of computer science theory 
+The theorem of computer science theory.
