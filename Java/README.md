@@ -28,3 +28,7 @@
 - [13주차 과제: I/O](https://github.com/whiteship/live-study/issues/13) ( 12월 26일 )
 - [14주차 과제: 제네릭](https://github.com/whiteship/live-study/issues/14) ( 1월 2일 )
 - [15주차 과제: 람다식](https://github.com/whiteship/live-study/issues/15) ( 1월 9일 )
+
+### 주차별 과제
+
+- homework 디렉토리
