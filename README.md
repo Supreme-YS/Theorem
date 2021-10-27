@@ -1,7 +1,5 @@
-
-### The theorem of computer science
-***
-Category
+# The theorem of computer science
+**Category**
 + AWS 개념 및 심층 스터디
 + Computer Science
 + Git 기본 지식
