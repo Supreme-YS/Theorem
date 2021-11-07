@@ -173,5 +173,62 @@
 
    변수, 메소드, 클래스를 변경하지 못하도록 막아주는 키워드이다. 변경하지 못하도록 하는 것이기 때문에 반드시 초기화가 필요하다.
 
+   ```java
+   /* final class는 상속이 불가능하며, 어떤 클래스의 부모 클래스가 될 수 없음*/
+   public final class FinalClass {
+     int x = 10;
+     int y = 20;
+     int sum() {
+       return this.x + this.y;
+     }
+   }
+   
+   // Error 
+   class Test extends FinalClass {...}
+   ```
 
+   ```java
+   /* final method는 상속이 오버라이딩이 불가능한 메소드를 말한다. */
+   public class FinalClass {
+     int x = 10;
+     int y = 20;
+     
+     // sum()은 오버라이딩 가능
+     int sum() {
+       return this.x + this.y;
+     }
+     
+     // diff() 는 오버라이딩 불가능
+     final int diff() {
+       return this.x - this.y;
+     }
+     
+     class Test extends FinalClass {...}
+   }
+   ```
+
+   ```java
+   /* final 변수는 상수라고 불리며, 값을 변경할 수 없고 항상 할당된 값만 사용할 수 있다. */
+   final double PI = 3.141592;
+   PI = 1.11; // 컴파일 에러
+   ```
+
+7. Object 클래스 (클래스들의 대장)
+
+   Object 클래스는 **자바 내 모든 클래스의 최상위 클래스**를 말하며 Object 클래스를 제외한 모든 클래스들은 Object 클래스로부터 상속받는다. 그렇기 때문에, **Object 클래스에서 제공하는 모든 메소드**들은 자동으로 상속받기 때문에 어떤 클래스에서든지 **모두 사용이 가능**하다.
+
+   - Object 클래스의 메소드
+
+   | Boolean equals(Obejct obj)             | 두 개의 객체를 비교해 결과를 반환                      |
+   | -------------------------------------- | ------------------------------------------------------ |
+   | **String toString()**                  | **현재 객체의 문자열 반환**                            |
+   | **protected Obejct clone()**           | **객체를 복사**                                        |
+   | **protected void finalize()**          | **GC(Garbage Collection) 직전에 객체의 리소스를 정리** |
+   | **Class getClass()**                   | **객체의 클래스 타입을 반환**                          |
+   | **int hashCode()**                     | **객체의 코드값 반환**                                 |
+   | **void wait()**                        | **스레드를 일시중지**                                  |
+   | **void wait(long timeout)**            | **파라미터에 주어진 시간만큼 스레드를 일시중지**       |
+   | **void wait(long timeout, int nanos)** | **파라미터에 주어진 시간만큼 스레드를 일시중지**       |
+   | **void notify()**                      | **Wait 상태의 스레드를 다시 실행**                     |
+   | **void notifyAll()**                   | **wait 상태의 모든 스레드를 다시 실행**                |
 
