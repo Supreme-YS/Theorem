@@ -19,7 +19,7 @@
 - [4주차 과제: 제어문](https://github.com/whiteship/live-study/issues/4) ( 10월 24일 ) [> 4주차 과제 link](https://github.com/Supreme-YS/Theorem/blob/main/Java/week4.md)
 - [5주차 과제: 클래스](https://github.com/whiteship/live-study/issues/5) ( 10월 31일 ) [> 5주차 과제 link](https://github.com/Supreme-YS/Theorem/blob/main/Java/week5.md)
 - [6주차 과제: 상속](https://github.com/whiteship/live-study/issues/6) ( 11월 7일 ) [> 6주차 과제 link](https://github.com/Supreme-YS/Theorem/blob/main/Java/week6.md)
-- [7주차 과제: 패키지](https://github.com/whiteship/live-study/issues/7) ( 11월 14일 )
+- [7주차 과제: 패키지](https://github.com/whiteship/live-study/issues/7) ( 11월 14일 )[> 7주차 과제 link](https://github.com/Supreme-YS/Theorem/blob/main/Java/week7.md)
 - [8주자 과제: 인터페이스](https://github.com/whiteship/live-study/issues/8) ( 11월 21일 )
 - [9주차 과제: 예외 처리](https://github.com/whiteship/live-study/issues/9) ( 11월 28일 )
 - [10주차 과제: 멀티쓰레드 프로그래밍](https://github.com/whiteship/live-study/issues/10) ( 12월 5일 )
