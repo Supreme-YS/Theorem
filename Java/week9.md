@@ -184,3 +184,138 @@ public class Ex8_5 {
 }
 ```
 
+```java
+package ch8;
+
+public class Ex8_6 {
+    public static void main(String[] args) {
+        try {
+            Exception e = new Exception("고의로 발생시킨 에러");
+            throw e; // 예외를 발생시킴
+        } catch (Exception e) {
+            System.out.println("에러 메세지 : " + e.getMessage());
+            e.printStackTrace();
+        }
+        System.out.println("프로그램 정상 종료");
+
+        // Exception 인스턴스를 생성할 때, 생성자에 String을 넣어주면
+        // String이 Exception 인스턴스 메시지로 저장된다.
+    }
+}
+
+```
+
+```java
+package ch8;
+
+public class Ex8_7 {
+    public static void main(String[] args) {
+        throw new Exception(); // Exception을 고의로 발생
+        // 하지만 컴파일이 안됨. 그 이유는 Exception 클래스와 그 자손들이 발생한 가능성이 있는 문장들에 대해 예외처리를 해줘야 하기 떄문이다.
+    }
+}
+```
+
+```java
+package ch8;
+
+public class Ex8_8 {
+    public static void main(String[] args) {
+        throw new RuntimeException(); // RuntimeException을 고의로 발생
+        // RuntimeException클래스와 그 자손에 해당되는 예외는 프로그래머가 실수로 발생하는 것이기 때문에
+        // 예외처리를 강조하지 않는 것
+    }
+}
+```
+
+> 메서드에 예외 선언하기
+
+```java
+void method() throws Exception1, Exception2, ...ExceptionN {
+	메서드 내용
+}
+```
+
+```java
+package ch8;
+
+public class Ex8_9 {
+    public static void main(String[] args) throws Exception {
+        method1(); // 같은 클래스내의 static 멤버 이므로 객체 생성없이 직접 호출가능
+    }
+
+    static void method1() throws Exception {
+        method2();
+    }
+
+    static void method2() throws Exception {
+        throw new Exception();
+    }
+}
+
+```
+
+```java
+	Exception in thread "main" java.lang.Exception
+	at ch8.Ex8_9.method2(Ex8_9.java:12)
+	at ch8.Ex8_9.method1(Ex8_9.java:8)
+	at ch8.Ex8_9.main(Ex8_9.java:5)
+```
+
+- 예외가 발생했을 때, 모두 3개의 메서드가 호출 스택에 있었고,
+- 예외가 발생한 곳은 제일 위줄에 있는 method2() 라는 것
+- Main 메서드가 method1()을, 그리고 method1()은 method2()를 호출했다는 것을 알 수 있다.
+- 즉, 메서드에서 예외를 처리하지 않고 넘겨줄 수 있지만, 예외가 처리된 것이 아닌 단순 전달인 것.. 어느 한 곳에서는 try-catch문으로 예외처리를 해주어야 한다.
+
+```java
+package ch8;
+
+import java.io.*;
+
+public class Ex8_10 {
+    public static void main(String[] args) {
+
+        try {
+            File f = createFile(args[0]);
+            System.out.println(f.getName() + "파일이 성공적으로 생성되었습니다");
+        } catch (Exception e) {
+            System.out.println(e.getMessage() + " 다시 입력 해주세요.");
+        }
+    }
+
+    static File createFile(String fileName) throws Exception {
+        if (fileName == null || fileName.equals("")) throw new Exception("파일 이름이 유효하지 않습니다.");
+        File f = new File(fileName); // File 클래스의 객체를 만든다.
+        // File 객체의 createNewFile 메서드를 이용해서 실제 파일을 생성한다.
+        f.createNewFile();
+        return f;
+    }
+}
+```
+
+- createFile()에 예외 선언 -> 예외는 main()으로 전달 -> main의 try-catch문에 의해 처리
+- 만약에 createFile()에서 try-catch문을 넣으면 main은 예외가 발생한지도 모른다.
+
+> Finally 키워드
+
+```java
+try {
+  // 예외가 발생할 가능성이 있는 문장 삽입
+} catch (Exception1 e1) {
+  // 예외 처리를 위한 문장 적기
+} finally {
+  // 예외의 발생여부에 관계없이 항상 수행되어야 하는 문장 삽입
+  // finally 블럭은 try-catch 문의 맨 마지막에 위치해야 한다.
+}
+```
+
+> 사용자 정의 예외 만들기
+
+```java
+class MyException extends Exception {
+  MyException(String msg) { // 문자열을 매개로 받는 생성자
+    super(msg); // 조상인 Exception클래스의 생성자를 호출한다.
+  }
+}
+```
+
