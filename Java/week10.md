@@ -118,3 +118,88 @@ public class ThreadExampleRunnable {
 }
 ```
 
+> 어떤 방법을 선호하는가?
+
+대부분의 사람들은 Runnable 인터페이스를 구현하는 방식을 선호한다. 왜냐하면 어쨌든 Thread 클래스를 상속받아서 사용해야하고, 인터페이스를 사용해서 구현체를 따로 구성한다는 거 자체가 뭔가.. DIP, OCP 등을 최대한 지키면서 프로그래밍을 할 수 있기 때문이 아닐까..?
+
+> start(), run() 
+
+- start() : 새로운 쓰레드가 작업을 실행하는데 필요한 호출스택을 생성하는 것
+- run()   : start()로 생성된 호출스택에 run()이 첫 번째로 저장되는 과정
+
+main 메서드에서 쓰레드의 start() 호출 -> start() 메서드는 해당 쓰레드가 작업을 수행하는데 필요한 호출 스택을 생성 -> 생성된 호출 스택에 run() 메서드를 호출해서 쓰레드가 작업을 수행
+
+> Thread State
+
+| 상태      | 열거상수      | 설명                                                         |
+| --------- | ------------- | ------------------------------------------------------------ |
+| 객체 생성 | NEW           | 스레드 객체가 생성, 아직 start() 메서드가 호출되지 않은 상태 |
+| 실행 대기 | RUNNABLE      | 실행 상태로 언제든지 갈 수 있는 상태                         |
+| 일시 정지 | WAITING       | 다른 스레드가 통지할 때까지 기다리는 상태                    |
+|           | TIMED_WAITING | 주어진 시간 동안 기다리는 상태                               |
+|           | BLOCKED       | 사용하고자 하는 객체의 락이 풀릴 때까지 기다리는 상태        |
+| 종료      | TERMINATED    | 실행을 마친 상태                                             |
+
+Thread 클래스에서 제공하는 메서드인 getState() 메서드를 이용하면 현재 쓰레드의 상태를 알 수 있다.
+
+- NEW : 쓰레드 객체가 생성, 아직 start() 메서드가 호출되지 않은 상태
+
+  ```java
+  package javastudy;
+  
+  public class ThreadStateNew {
+      public static void main(String[] args) {
+          Thread threadStateNewExam = new Thread(new ThreadStateNewExam());
+          System.out.println(threadStateNewExam.getState());
+          threadStateNewExam.start();
+      }
+  
+      static class ThreadStateNewExam implements Runnable {
+          @Override
+          public void run() {
+              System.out.println("NEW 상태 !");
+          }
+      }
+      /* 출력값
+      NEW
+      NEW 상태 !
+       */
+  }
+  ```
+
+- RUNNABLE : 실행 상태로 언제든 갈 수 있는 상태
+
+  ```java
+  package javastudy;
+  
+  public class ThreadStateRunnable {
+      public static void main(String[] args) {
+          Thread threadStateRunnableExam = new Thread(new ThreadStateRunnableExam());
+          System.out.println(threadStateRunnableExam.getState());
+          threadStateRunnableExam.start();
+          System.out.println(threadStateRunnableExam.getState());
+      }
+  
+      static class ThreadStateRunnableExam implements Runnable {
+          @Override
+          public void run() {
+              System.out.println("RUNNABLE 상태 !");
+          }
+      }
+      /* 출력값
+      NEW
+      RUNNABLE
+      RUNNABLE 상태 !
+       */
+  }
+  ```
+
+  > RUNNABLE이 먼저 출력된 이유는, start()를 호출하면, 실행대기열에 저장된 후 실행된다.
+
+- WAITING : 다른 스레드가 통지할 때까지 기다리는 상태
+
+  ```java
+  
+  ```
+
+  
