@@ -22,7 +22,7 @@
 - [7주차 과제: 패키지](https://github.com/whiteship/live-study/issues/7) ( 11월 14일 )[> 7주차 과제 link](https://github.com/Supreme-YS/Theorem/blob/main/Java/week7.md)
 - [8주자 과제: 인터페이스](https://github.com/whiteship/live-study/issues/8) ( 11월 21일 ) [> 8주차 과제 link](https://github.com/Supreme-YS/Theorem/blob/main/Java/week8.md)
 - [9주차 과제: 예외 처리](https://github.com/whiteship/live-study/issues/9) ( 11월 28일 ) [> 9주차 과제 link](https://github.com/Supreme-YS/Theorem/blob/main/Java/week9.md)
-- [10주차 과제: 멀티쓰레드 프로그래밍](https://github.com/whiteship/live-study/issues/10) ( 12월 5일 )
+- [10주차 과제: 멀티쓰레드 프로그래밍](https://github.com/whiteship/live-study/issues/10) ( 12월 5일 ) [> 10주차 과제 link](https://github.com/Supreme-YS/Theorem/blob/main/Java/week10.md)
 - [11주차 과제: Enum](https://github.com/whiteship/live-study/issues/11) ( 12월 12일 )
 - [12주차 과제: 애노테이션](https://github.com/whiteship/live-study/issues/12) ( 12월 19일 )
 - [13주차 과제: I/O](https://github.com/whiteship/live-study/issues/13) ( 12월 26일 )
